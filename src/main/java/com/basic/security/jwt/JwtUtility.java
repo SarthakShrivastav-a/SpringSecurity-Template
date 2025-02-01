@@ -17,6 +17,37 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The JwtUtility class provides functionality to generate, parse, and validate
+ * JSON Web Tokens (JWTs), as well as extract claims like username and roles.
+ *
+ * This class is designed to handle JWT-related operations within the application,
+ * enabling secure stateless authentication and authorization.
+ *
+ * Key responsibilities include:
+ * - Generating JWTs with specified claims such as roles and username.
+ * - Parsing JWTs to extract claims, including username and roles.
+ * - Validating the authenticity and expiration of JWTs.
+ * - Extracting JWTs from HTTP request headers.
+ *
+ * Dependencies:
+ * - `javax.crypto.SecretKey` is utilized for signing and validating the token using HMAC-SHA.
+ * - Signing and cryptographic operations are performed using `io.jsonwebtoken` library.
+ *
+ * Configuration:
+ * The class relies on externalized configuration properties:
+ * - `spring.app.jwtSecret`: A base64-encoded secret key for signing JWTs.
+ * - `spring.app.jwtExpirationMs`: Duration in milliseconds for which the JWT is valid.
+ *
+ * Token Structure:
+ * Tokens include claims for:
+ * - Subject: The user's username.
+ * - Roles: The user's authorities/roles.
+ *
+ * Exception Handling:
+ * Handles exceptions such as invalid token format, unsupported token, expired token,
+ * and empty claims string, logging relevant error messages for debugging purposes.
+ */
 @Component
 public class JwtUtility {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtility.class);

@@ -15,6 +15,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The AuthController class is responsible for handling authentication-related HTTP requests.
+ * This controller provides endpoints to authenticate users and generate JWT tokens upon successful authentication.
+ *
+ * It uses the following main components:
+ * - {@link AuthenticationManager}: To perform the user authentication based on the provided credentials.
+ * - {@link JwtUtility}: To generate and manage JSON Web Tokens (JWTs) for authenticated users.
+ * - {@link AuthUserService}: To load user details and validate user credentials during authentication.
+ *
+ * Endpoints:
+ * - POST /api/auth/signin: Authenticates a user with email and password, and returns a JWT token on success.
+ *
+ * Logs information about authentication attempts and any errors encountered during the process.
+ */
 @RestController
 @RequestMapping("api/auth")
 public class AuthController {

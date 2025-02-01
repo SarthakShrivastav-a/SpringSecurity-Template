@@ -7,6 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+/**
+ * Represents an authenticated user entity in the system.
+ * This class is stored in the "AuthUser" MongoDB collection.
+ * It encapsulates the user's authentication details, including their email,
+ * hashed password, and role.
+ */
 @Document(collection = "AuthUser")
 public class AuthUser {
 
